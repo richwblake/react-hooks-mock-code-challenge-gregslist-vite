@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from './Header';
-import ListingsContainer from './ListingsContainer';
+import React from "react";
+import Header from "./Header";
+import ListingsContainer from "./ListingsContainer";
 
 const App = () => {
 	return (

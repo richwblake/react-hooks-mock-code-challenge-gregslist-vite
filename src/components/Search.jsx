@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Search = () => {
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log("Here's the submission event:\n", e);
 	};
@@ -18,7 +18,6 @@ const Search = () => {
 			<button type="submit">🔍</button>
 		</form>
 	);
-
 };
 
 export default Search;
