@@ -1,4 +1,3 @@
-import React from "react";
 import ListingCard from "./ListingCard";
 
 const ListingsContainer = () => {

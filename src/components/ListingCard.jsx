@@ -1,5 +1,3 @@
-import React from "react";
-
 const ListingCard = () => {
     return (
         <li className="card">
