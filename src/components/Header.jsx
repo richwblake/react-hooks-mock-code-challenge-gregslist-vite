@@ -1,6 +1,8 @@
 import Search from "./Search";
 
-const Header = () => {
+const Header = ({ handleSearch }) => {
+    // Pass our handleSearch function prop from App to Search, where it will get invoked by the user submitting
+    // a search query
     return (
         <header>
             <h1>
@@ -9,7 +11,7 @@ const Header = () => {
                 </span>
                 gregslist
             </h1>
-            <Search />
+            <Search handleSearch={handleSearch} />
         </header>
     );
 };

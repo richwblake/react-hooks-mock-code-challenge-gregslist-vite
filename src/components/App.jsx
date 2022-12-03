@@ -12,6 +12,9 @@ const App = () => {
     // their parent component, App.
     const [listings, setListings] = useState([]);
 
+    // Define the search term state variable here, as it will affect the listings state
+    const [search, setSearch] = useState("");
+
     // On page load (specified by the empty depedency array), we fetch all listings from the /listings endpoint
     // from our API. We then store the array of item objects in our state variable, listings, with the setter function
     useEffect(() => {
@@ -20,10 +23,24 @@ const App = () => {
             .then(listings => setListings(listings));
     }, []);
 
+    // To avoid having to pass both listings and setListings as props to Header (Beacuse search needs to affect
+    // our listings state), we can write a function and pass it instead, which will handle bringing the search
+    // query into the scope of this component
+    const handleSearch = searchTerm => {
+        setSearch(searchTerm);
+    };
+
+    const filterListings = () => {
+        // Filter out listings based on whether or not their description includes the search term. This
+        // function executes whenever the search state variable is updated, which in turn gives a new updated
+        // array to ListingsContainer as the listings prop
+        return listings.filter(listing => listing.description.toLowerCase().includes(search.toLowerCase()));
+    };
+
     return (
         <div className="app">
-            <Header />
-            <ListingsContainer API={API} listings={listings} setListings={setListings} />
+            <Header handleSearch={handleSearch} />
+            <ListingsContainer API={API} listings={filterListings()} setListings={setListings} />
         </div>
     );
 };

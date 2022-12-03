@@ -1,7 +1,15 @@
-const Search = () => {
-    const handleSubmit = (e) => {
+import { useState } from 'react';
+
+const Search = ({ handleSearch }) => {
+
+    // Define state variable to control search form.
+    const [inputData, setInputData] = useState("");
+
+    // Function invoked when the form is submitted. Prevent default submission behavior and call handleSearch
+    // passed down from the App component.
+    const handleSubmit = e => {
         e.preventDefault();
-        console.log("Here's the submission event:\n", e);
+        handleSearch(inputData);
     };
 
     return (
@@ -10,8 +18,8 @@ const Search = () => {
                 type="text"
                 id="search"
                 placeholder="search free stuff"
-                value={""}
-                onChange={(e) => console.log(e.target.value)}
+                value={inputData}
+                onChange={e => setInputData(e.target.value)}
             />
             <button type="submit">🔍</button>
         </form>
