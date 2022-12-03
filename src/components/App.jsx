@@ -23,7 +23,7 @@ const App = () => {
     return (
         <div className="app">
             <Header />
-            <ListingsContainer listings={listings} />
+            <ListingsContainer API={API} listings={listings} setListings={setListings} />
         </div>
     );
 };

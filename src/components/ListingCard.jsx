@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ListingCard = ({ listing }) => {
+const ListingCard = ({ listing, handleTrashCanClick }) => {
 
     // Using destructuring, create 3 new variables that correspond with each properties value in the listing
     // object prop.
@@ -16,6 +16,8 @@ const ListingCard = ({ listing }) => {
         setIsFavorited(!isFavorited);
     };
 
+    // On line 40, when the trash can icon is clicked by the user, we invoke the callback prop handleTrashCanIcon,
+    // and pass as an argument the JSON listing that this ListingCard is based on. 
     return (
         <li className="card">
             <div className="image">
@@ -36,7 +38,7 @@ const ListingCard = ({ listing }) => {
                 )}
                 <strong>{description}</strong>
                 <span> · {location}</span>
-                <button className="emoji-button delete">🗑</button>
+                <button onClick={() => handleTrashCanClick(listing)} className="emoji-button delete">🗑</button>
             </div>
         </li>
     );
