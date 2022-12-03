@@ -2,6 +2,8 @@
 
 ## Demo
 
+### Please give each deliverable a good try before checking out the solution. Ask an instructor, TC, or cohort mate before looking for the answer here!
+
 Use this gif as an example of how the app should work.
 
 ![Demo GIF](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-mock-challenge-gregslist/demo.gif)
